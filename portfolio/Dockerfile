@@ -6,13 +6,13 @@ FROM maven:3.9.11-eclipse-temurin-21-alpine AS build
 WORKDIR /app
 
 # Copy only the pom.xml first to leverage Docker cache for dependencies
-COPY pom.xml .
+COPY portfolio/pom.xml .
 
 # Download all Maven dependencies without building the project yet
 RUN mvn dependency:go-offline -B
 
 # Copy the source code into the container
-COPY src ./src
+COPY portfolio/src ./src
 
 # Package the Spring Boot application into a JAR file
 # -DskipTests skips running unit tests to speed up the build
