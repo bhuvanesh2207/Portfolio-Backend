@@ -27,7 +27,7 @@ FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
 
 # Copy the built JAR from the build stage into the runtime image
-COPY --from=build /app/target/Portfolio-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/portfolio-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose port 8080 (Spring Boot default)
 EXPOSE 8080
